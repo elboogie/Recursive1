@@ -38,16 +38,16 @@ void Add_Number(const std::string & s, int branch_index = -1, int step_index = 0
 	char ch1{};
 	while (index < s.size())
 	{
-		ch1 = s[index];
+		ch1 = s[index] - '0';
 		values[b_i].push_back(ch1);
-/*
+
 		if (index + 1 < s.size() && s[index] + s[index + 1] <= 'z')
 		{
 			// create new branch
-			Add_Number(s, b_i, index);
+			Add_Number(s, b_i, index+2);
 
 		}
-*/
+
 		++index;
 	}
 }
@@ -56,9 +56,14 @@ void Add_Number(const std::string & s, int branch_index = -1, int step_index = 0
 void Print_Letters()
 {
 	for (auto x : values)
-		for (auto y : x)
-			cout << y << " ";
-
+	{
+		for (char y : x)
+		{
+			char yy = y + 'a';
+			cout << yy << " ";
+		}
+		cout << std::endl;
+	}
 }
 
 
