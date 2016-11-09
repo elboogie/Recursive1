@@ -4,13 +4,15 @@
 #include "stdafx.h"
 #include <iostream>
 
+using std::cin;
+using std::cout;
 
 int main()
 {
 
 
 	char ch;
-	get(ch);
+	cin >> ch;
     return 0;
 }
 
