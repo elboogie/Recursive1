@@ -29,25 +29,33 @@ void Add_Number(const std::string & s, int branch_index = -1, int step_index = 0
 	else
 	{
 		std::vector<char> v(values[branch_index]);
+		char c1 = (s[index - 2] - _0) * 10;
+		char c2 = s[index - 1] - _0;
+		v.push_back(c1 + c2);
 		values.push_back(v);
 		b_i = values.size() - 1;
 	}
 
-	
+
 
 	char ch1{};
 	while (index < s.size())
 	{
-		ch1 = s[index] - '0';
-		values[b_i].push_back(ch1);
+		ch1 = s[index] - _0;
+	
+		
 
-		if (index + 1 < s.size() && s[index] + s[index + 1] <= 'z')
+		if (index + 1 < s.size() && (s[index] - _0 + s[index + 1] - _0 <= 'z' - _0))
 		{
-			// create new branch
-			Add_Number(s, b_i, index+2);
-
+			char ch2 = s[index + 1] - _0;
+			if (ch1 + ch2 <= 'z' - _0)
+			{ 
+				// create new branch
+				Add_Number(s, b_i, index + 2);
+			}
 		}
 
+		values[b_i].push_back(ch1);
 		++index;
 	}
 }
