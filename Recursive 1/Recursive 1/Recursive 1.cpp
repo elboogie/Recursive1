@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 
 
 using std::cin;
@@ -13,11 +14,18 @@ using std::cout;
 
 
 constexpr char _0 = '0';
+std::vector<std::vector<char>> values;
+
+void add_number(std::string s)
+{
+
+}
 
 int main()
 {
 	std::string input;
 	std::getline(cin, input);
+	std::stringstream ss(input);
 	
 	char ch;
 	cin >> ch;
