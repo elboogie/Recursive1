@@ -5,8 +5,8 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
-#include <sstream>
 #include <vector>
+
 
 
 using std::cin;
@@ -16,17 +16,63 @@ using std::cout;
 constexpr char _0 = '0';
 std::vector<std::vector<char>> values;
 
-void add_number(std::string s)
+void Add_Number(const std::string & s, int branch_index = -1, int step_index = 0)
 {
+	int b_i = branch_index;
+	int index = step_index;
+
+	if (b_i == -1)
+	{
+		values.push_back(std::vector<char>());
+		b_i = 0;
+	}
+	else
+	{
+		std::vector<char> v(values[branch_index]);
+		values.push_back(v);
+		b_i = values.size() - 1;
+	}
+
+	
+
+	char ch1{};
+	while (index < s.size())
+	{
+		ch1 = s[index];
+		values[b_i].push_back(ch1);
+/*
+		if (index + 1 < s.size() && s[index] + s[index + 1] <= 'z')
+		{
+			// create new branch
+			Add_Number(s, b_i, index);
+
+		}
+*/
+		++index;
+	}
+}
+
+
+void Print_Letters()
+{
+	for (auto x : values)
+		for (auto y : x)
+			cout << y << " ";
 
 }
+
+
 
 int main()
 {
 	std::string input;
 	std::getline(cin, input);
-	std::stringstream ss(input);
 	
+	
+	Add_Number(input);
+
+	Print_Letters();
+
 	char ch;
 	cin >> ch;
     return 0;
