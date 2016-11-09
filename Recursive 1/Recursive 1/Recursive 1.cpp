@@ -45,7 +45,7 @@ void Add_Number(const std::string & s, int branch_index = -1, int step_index = 0
 	
 		
 
-		if (index + 1 < s.size() && (s[index] - _0 + s[index + 1] - _0 <= 'z' - _0))
+		if (index + 1 < s.size() && ((s[index] - _0) *10 + s[index + 1] - _0 <= 'z' - _0))
 		{
 			char ch2 = s[index + 1] - _0;
 			if (ch1 + ch2 <= 'z' - _0)
