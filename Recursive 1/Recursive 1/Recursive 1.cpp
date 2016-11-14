@@ -84,6 +84,9 @@ int main()
 
 	Print_Letters();
 
+	const int v1{};
+	auto& var = v1;
+
 	char ch;
 	cin >> ch;
     return 0;
