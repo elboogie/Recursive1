@@ -73,6 +73,8 @@ void Print_Letters()
 }
 
 
+int foo() { return 1; };
+
 
 int main()
 {
@@ -83,9 +85,6 @@ int main()
 	Add_Number(input);
 
 	Print_Letters();
-
-	const int v1{};
-	auto& var = v1;
 
 	char ch;
 	cin >> ch;
